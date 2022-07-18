@@ -4,16 +4,19 @@ package Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
 @Entity
-public class Albums {
+public class Album {
     @Id @GeneratedValue
     private long id;
 
     private String albumName;
     private String recordLabel;
-    private Collection<Songs> songs;
+    private int rating;
+    @OneToMany (mappedBy = "Albums")
+    private Collection<Song> song;
 
 
 

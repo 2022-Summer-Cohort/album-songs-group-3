@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Songs {
+public class Song {
 
             @Id @GeneratedValue
             private String songName;
