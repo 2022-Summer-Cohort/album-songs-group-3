@@ -21,7 +21,7 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Album album1 = new Album("album","gvdgsgfeuh","tyler","src","retyd");
         albumRepo.save(album1);
-        Song song1 = new Song("dsg","ydgsuyfg","gysdg",12);
+        Song song1 = new Song("dsg","ydgsuyfg",album1,12);
         songRepo.save(song1);
 
     }
