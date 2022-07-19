@@ -18,6 +18,7 @@ public class Album {
     private String label;
     @OneToMany(mappedBy = "albums")
     private Collection<Song> songs;
+
     public Album(String name, String description, String artist, String imgUrl, String label) {
         this.name = name;
         this.description = description;
