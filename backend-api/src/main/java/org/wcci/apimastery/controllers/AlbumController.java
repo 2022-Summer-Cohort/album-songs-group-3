@@ -26,7 +26,5 @@ public class AlbumController {
         albumRepo.save(albumToAdd);
         return albumRepo.findAll();
     }
-
-
 }
 

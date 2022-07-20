@@ -1,0 +1,16 @@
+### Get all campuses
+GET http://localhost:8080/
+###
+GET http://localhost:8080/albums/
+###
+GET http://localhost:8080/albums/
+###
+POST http://localhost:8080/albums/
+Content-Type: application/json
+{
+    "name": "A NfdsdfdsfdsEW ALBUM",
+    "description": "DESCRIPTION OF NEW ALBUM",
+    "songs": []
+}
+###
+GET http://localhost:8080/songs/

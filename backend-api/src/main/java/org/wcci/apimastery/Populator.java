@@ -16,7 +16,6 @@ public class Populator implements CommandLineRunner {
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
     }
-
     @Override
     public void run(String... args) throws Exception {
         Album album1 = new Album("album","gvdgsgfeuh","tyler","src","retyd");
