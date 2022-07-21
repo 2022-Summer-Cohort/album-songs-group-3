@@ -20,30 +20,37 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Album album1 = new Album("Album1","Tyler0",
-                "Bacon ipsum dolor amet short loin tail pork loin salami shoulder fatback doner flank chicken brisket meatball jerky.",
-                "https://picsum.photos/200/200?random=1","Album label");
-        Album album2 = new Album("Album2","Tyler1","Chicken swine short ribs, t-bone bacon hamburger andouille pastrami rump capicola alcatra picanha.",
-                "https://picsum.photos/200/200?random=2","Album label2");
-        Album album3 = new Album("Album3","Tyler2","Meatball ham venison buffalo chislic kevin jowl shank pastrami burgdoggen cow brisket pork chop bacon salami.",
-                "https://picsum.photos/200/200?random=3","Album label3");
-        Album album4 = new Album("Album4","Tyler3"," Meatball turkey beef venison jowl shank flank bacon fatback chicken ham strip steak picanha short loin salami.",
-                "https://picsum.photos/200/200?random=4","Album label4");
+        Album album1 = new Album("Absolution","Muse",
+                "Muse, Wow! It's a band! They play rock! They rock!!!",
+                "https://static.gigwise.com/artists/AbsolutionMuse.jpg","Not Roc-a-fela");
+        Album album2 = new Album("Boston","Boston","Not just a city, but also something the elderly folks snap fingers to",
+                "https://cdn.musebycl.io/2020-10/boston.jpg","Not Roc-a-fela");
+        Album album3 = new Album("Blue Print","Jay-Z","Dropped on Sept 11,2001... never forget Jay-Z",
+                "https://i1.sndcdn.com/artworks-tdUyQqOPVgwIGDV1-GpUkqA-t500x500.jpg","Roc-a-fela");
+        Album album4 = new Album("Album of Disappointing Greatness","Donk-EEE"," Meatball turkey beef venison jowl shank flank bacon fatback chicken ham strip steak picanha short loin salami.",
+                "https://i.pinimg.com/736x/f0/08/2c/f0082cef73aaa7b45c0b5eed57aa8d9a--mule-basset-hound.jpg","Self Produced Deuce");
 
         albumRepo.save(album1);
         albumRepo.save(album2);
         albumRepo.save(album3);
         albumRepo.save(album4);
 
-        Song song1 = new Song("Song1","Tyler", album1,12);
-        Song song2 = new Song("Song2","Tyler", album1,12);
-        Song song3 = new Song("Song3","Tyler", album1,12);
-        Song song4 = new Song("Song4","Tyler", album1,12);
+        Song song1 = new Song("Uprising","Muse", album1,420);
+        Song song2 = new Song("More Than A Feeling","Boston", album2,420);
+        Song song3 = new Song("99 Problems","Jay-Z", album3,420);
+        Song song4 = new Song("Hee Haw at the Hoe Down","Donk-EEE", album4,420);
+        Song song5 = new Song("Resistance","Muse", album1,420);
+        Song song6 = new Song("Super Massive Black-Hole","Muse", album1,420);
+        Song song7 = new Song("Psycho","Muse", album1,420);
 
         songRepo.save(song1);
         songRepo.save(song2);
         songRepo.save(song3);
         songRepo.save(song4);
+        songRepo.save(song5);
+        songRepo.save(song6);
+        songRepo.save(song7);
+
 
     }
 }
