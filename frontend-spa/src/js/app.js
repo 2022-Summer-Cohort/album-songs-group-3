@@ -23,6 +23,7 @@ function makeHomeView(){
             albumButton.addEventListener("click",()=>{
                 let albumId = album.querySelector(".id_field");
                 // alert(`You clicked campus id: ${albumId.value}`);
+                console.log(albumId)
                 makeAlbumView(albumId.value)
             })
         })
@@ -40,9 +41,45 @@ function makeAlbumView(albumId){
         container.innerHTML += albumView(album);
         container.innerHTML += footer();
 
-        
+    const backButton = document.querySelector(".home-navigation");
+    backButton.addEventListener("click",()=>{
+        makeHomeView();
+    })
+
+
+// CHANGE
+
+    const songNameIn = container.querySelector(".songNameInput");
+    const artistNameIn = container.querySelector(".artistName");
+    const songDurationIn = container.querySelector(".songDurationInput");
+    const addSongButton = container.querySelector(".addSongButton");
+
+    addSongButton.addEventListener("click",()=>{
+        // alert(`You clicked campus`);
+        const newSongJson = {
+            "name": "asd",
+            "duration": 1,
+            "artist": "asdasda",
+        }
+        console.log(newSongJson)
+        fetch(`http://localhost:8080/api/albums/${albumId}/addSong`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newSongJson)
+        })
+        .then(res => res.json())
+        .then(album => {
+            makeAlbumView(album.id);
+        })
 
     })
+
+
+    })
+    .catch(err=>console.error(err))
+
 }
 
 makeHomeView()
