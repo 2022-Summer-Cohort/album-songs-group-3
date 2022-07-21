@@ -28,6 +28,23 @@ export default function albumView(album){
             </div>
 
         </div>
+
+
+        <div class = "row">
+          ${
+            album.songs.map(songs => {
+                return `
+                    <div class="song">
+                        <h3 class "song-title"> ${songs.title}</h3>
+                        
+                    </div>
+                    `
+            }).join("")
+        }
+
+
+        </div>
+
     </div>
 
     `
