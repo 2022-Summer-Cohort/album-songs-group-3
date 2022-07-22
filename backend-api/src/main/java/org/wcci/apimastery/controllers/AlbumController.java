@@ -26,7 +26,7 @@ public class AlbumController {
         return albumRepo.findById(id).get();
     }
 
-    @PostMapping("/api/albums")
+    @PostMapping("/api/addAlbums")
     public Iterable<Album> addAlbum(@RequestBody Album albumToAdd) {
         albumRepo.save(albumToAdd);
         return albumRepo.findAll();
@@ -34,9 +34,9 @@ public class AlbumController {
 
     @PatchMapping("/api/albums/{id}/addSong")
     public Iterable<Song> addSong(@RequestBody Song songtoadd,@PathVariable Long id) {
-     Album newAlbum =    albumRepo.findById(id).get();
-     Song newSong = new Song(songtoadd.getName(),songtoadd.getArtist(),newAlbum,songtoadd.getDuration());
-     songRepo.save(newSong);
+         Album newAlbum =    albumRepo.findById(id).get();
+         Song newSong = new Song(songtoadd.getName(),songtoadd.getArtist(),newAlbum,songtoadd.getDuration());
+         songRepo.save(newSong);
      return songRepo.findAll();
     }
 
