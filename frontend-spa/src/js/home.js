@@ -1,5 +1,6 @@
 export default function home(albums){
     return `
+
         <div class="containter m-3">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 ${albums.map(album =>{
@@ -24,6 +25,58 @@ export default function home(albums){
                         `
                     }).join("")
                 }
+
+
+                        <div class="albumElement col">
+                            <div class="card h-100">
+                         
+                            <div class="card-body">
+
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Artist name" aria-label="Artist name">
+                                    </div>
+                                </div>
+                                
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Album name" aria-label="Album name">
+                                    </div>
+                                </div>
+
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Record label" aria-label="Record label">
+                                    </div>
+                                </div>
+
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Description" aria-label="Description">
+                                    </div>
+                                </div>
+
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Album cover html" aria-label="Album cover html">
+                                    </div>
+                                </div>
+                                
+                                <div class="row m-2">
+                                </div>
+                                
+                                <div class="row m-1">
+                                    <div class="col">
+                                        <a href="#" class="albumButton btn btn-sm btn-success">Add Album</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                          </div>
+                        </div>
+
+
             </div>
     </div>
     `

@@ -27,6 +27,16 @@ function makeHomeView(){
                 console.log(albumId)
                 makeAlbumView(albumId.value)
             })
+
+            
+        })
+
+
+        
+
+
+        addAlbumNavigation.addEventListener("click",() =>{
+            alert(`Hey`);
         })
     })
 }

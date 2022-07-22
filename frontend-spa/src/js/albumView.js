@@ -3,6 +3,7 @@ export default function albumView(album){
   return `
   
     <div class="containter m-3">
+    
         <div class="row">
             
             <div class="albumElement col-4">
