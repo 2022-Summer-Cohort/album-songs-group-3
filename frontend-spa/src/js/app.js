@@ -9,11 +9,12 @@ function makeHomeView(){
     fetch("http://localhost:8080/api/albums")
     .then(res => res.json())
     .then(albums => {
-        // console.log(albums);
-    
         container.innerHTML = header();
         container.innerHTML += home(albums);
         container.innerHTML += footer();
+
+        const addAlbumNavigation = document.querySelector(".addAlbum-navigation")
+        addAlbumNavigation.classList.remove("disabled");
 
         const albumElement = document.querySelectorAll(".albumElement");
 
@@ -27,7 +28,6 @@ function makeHomeView(){
                 makeAlbumView(albumId.value)
             })
         })
-
     })
 }
 
@@ -40,47 +40,42 @@ function makeAlbumView(albumId){
         container.innerHTML = header();
         container.innerHTML += albumView(album);
         container.innerHTML += footer();
+        
+        const addAlbumNavigation = document.querySelector(".addAlbum-navigation")
+        addAlbumNavigation.classList.add("disabled");
 
-    const backButton = document.querySelector(".home-navigation");
-    backButton.addEventListener("click",()=>{
-        makeHomeView();
-    })
+        const backButton = document.querySelector(".home-navigation");
 
-
-// CHANGE
-
-    const songNameIn = container.querySelector(".songNameInput");
-    const artistNameIn = container.querySelector(".artistName");
-    const songDurationIn = container.querySelector(".songDurationInput");
-    const addSongButton = container.querySelector(".addSongButton");
-
-    addSongButton.addEventListener("click",()=>{
-        // alert(`You clicked campus`);
-        const newSongJson = {
-            "name": songNameIn.value,
-            "duration": songDurationIn.value,
-            "artist": artistNameIn.value,
-        }
-        console.log(newSongJson)
-
-        fetch(`http://localhost:8080/api/albums/${albumId}/addSong`,{
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newSongJson)
-        })
-        .then(res => res.json())
-        .then(album => {
-            makeAlbumView(albumId);
+        backButton.addEventListener("click",()=>{
+            makeHomeView();
         })
 
+        const songNameIn = container.querySelector(".songNameInput");
+        const artistNameIn = container.querySelector(".artistName");
+        const songDurationIn = container.querySelector(".songDurationInput");
+        const addSongButton = container.querySelector(".addSongButton");
+
+        addSongButton.addEventListener("click",()=>{
+            const newSongJson = {
+                "name": songNameIn.value,
+                "duration": songDurationIn.value,
+                "artist": artistNameIn.value,
+            }
+
+            fetch(`http://localhost:8080/api/albums/${albumId}/addSong`,{
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newSongJson)
+            })
+            .then(res => res.json())
+            .then(album => {
+                makeAlbumView(albumId);
+            })
+        })
     })
-
-
-    })
-    .catch(err=>console.error(err))
-
+    // .catch(err=>console.error(err))
 }
 
 makeHomeView()
