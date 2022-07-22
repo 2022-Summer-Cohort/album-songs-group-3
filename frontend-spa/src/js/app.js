@@ -34,6 +34,7 @@ function makeHomeView() {
 
       const addAlbumButton = document.querySelector(".addAlbumButton");
       addAlbumButton.addEventListener("click", () => {
+        // TODO: Fix order of inputs
         const newAlbumJson = {
           name: albumArtistIn.value,
           description: albumNameIn.value,
