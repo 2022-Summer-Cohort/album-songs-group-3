@@ -57,11 +57,12 @@ function makeAlbumView(albumId){
     addSongButton.addEventListener("click",()=>{
         // alert(`You clicked campus`);
         const newSongJson = {
-            "name": "asd",
-            "duration": 1,
-            "artist": "asdasda",
+            "name": songNameIn.value,
+            "duration": songDurationIn.value,
+            "artist": artistNameIn.value,
         }
         console.log(newSongJson)
+
         fetch(`http://localhost:8080/api/albums/${albumId}/addSong`,{
             method: 'PATCH',
             headers: {
@@ -71,7 +72,7 @@ function makeAlbumView(albumId){
         })
         .then(res => res.json())
         .then(album => {
-            makeAlbumView(album.id);
+            makeAlbumView(albumId);
         })
 
     })
