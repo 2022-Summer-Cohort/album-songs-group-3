@@ -42,31 +42,31 @@ export default function home(albums){
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Artist name" aria-label="Artist name">
+                                        <input type="text" class="form-control albumArtistIn" placeholder="Artist name" aria-label="Artist name" value="Artist name">
                                     </div>
                                 </div>
                                 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Album name" aria-label="Album name">
+                                        <input type="text" class="form-control albumNameIn" placeholder="Album name" aria-label="Album name" value="Album name">
                                     </div>
                                 </div>
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Record label" aria-label="Record label">
+                                        <input type="text" class="form-control albumLabelIn" placeholder="Record label" aria-label="Record label" value="Record label">
                                     </div>
                                 </div>
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Description" aria-label="Description">
+                                        <input type="text" class="form-control albumDescriptionIn" placeholder="Description" aria-label="Description" value="Description">
                                     </div>
                                 </div>
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Album cover html" aria-label="Album cover html" value="https://picsum.photos/200">
+                                        <input type="text" class="form-control albumImgIn" placeholder="Album cover html" aria-label="Album cover html" value="https://picsum.photos/200">
                                     </div>
                                 </div>
                                 
