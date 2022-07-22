@@ -16,6 +16,11 @@ export default function home(albums){
                                 <p class="card-text">${album.description}</p>
                                 <a href="#" class="albumButton btn btn-sm btn-primary">More Info</a>
                                 
+                                <div class="d-grid d-md-flex justify-content-md-end">
+                                    <a href="#" class="albumDeleteButton btn btn-sm btn-danger">Delete</a>
+                                </div>
+
+
                                 <input class="id_field" hidden value="${album.id}">
                             </div>
 
