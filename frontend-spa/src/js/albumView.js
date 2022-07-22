@@ -37,6 +37,7 @@ export default function albumView(album){
      <div class="row m-3">
 
         <div class="col-4">
+                <p>asdasdas</p>
         </div>
         
         <div class="col-5">

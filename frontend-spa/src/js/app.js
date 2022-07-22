@@ -44,17 +44,17 @@ function makeHomeView() {
 
         console.log(newAlbumJson);
 
-    //     fetch(`http://localhost:8080/api/addAlbums`, {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(newSongJson),
-    //     })
-    //       .then((res) => res.json())
-    //       .then((album) => {
-    //         newAlbumHome(albumId);
-    //       });
+        fetch(`http://localhost:8080/api/addAlbums`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newAlbumJson),
+        })
+          .then((res) => res.json())
+          .then((album) => {
+            makeHomeView();
+          });
       });
     });
 }
