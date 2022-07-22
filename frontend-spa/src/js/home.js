@@ -12,16 +12,20 @@ export default function home(albums){
                             <img class="card-img-top" src="${album.imgUrl}">
                          
                             <div class="card-body">
+
                                 <h5 class="card-title">${album.artist} - ${album.name} (${album.label})</h5>
                                 <p class="card-text">${album.description}</p>
-                                <a href="#" class="albumButton btn btn-sm btn-primary">More Info</a>
-                                
-                                <div class="d-grid d-md-flex justify-content-md-end">
-                                    <a href="#" class="albumDeleteButton btn btn-sm btn-danger">Delete</a>
-                                </div>
 
+                                    <div class="float-start text-beginning">
+                                        <a href="#" class="albumButton btn btn-sm btn-primary">More Info</a>
+                                    </div>
 
-                                <input class="id_field" hidden value="${album.id}">
+                                    <div class="float-end text-end">
+                                        <a href="#" class="albumDeleteButton btn btn-sm btn-danger">Delete</a>
+                                    </div>
+
+                                    <input class="id_field" hidden value="${album.id}">
+
                             </div>
 
                           </div>
@@ -31,8 +35,7 @@ export default function home(albums){
                     }).join("")
                 }
 
-
-                        <div class="albumElement col">
+                        <div class="col">
                             <div class="card h-100">
                          
                             <div class="card-body">
@@ -69,10 +72,12 @@ export default function home(albums){
                                 
                                 <div class="row m-2">
                                 </div>
-
+                                
                                 <div class="row m-1">
                                     <div class="col">
-                                        <a href="#" class="albumButton btn btn-sm btn-success">Add Album</a>
+                                        <div class="text-end">
+                                            <a href="#" class="addAlbumButton btn btn-sm btn-success">Add Album</a>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -80,7 +85,6 @@ export default function home(albums){
 
                           </div>
                         </div>
-
 
             </div>
     </div>

@@ -3,11 +3,11 @@ export default function albumView(album){
   return `
   
     <div class="containter m-3">
-    
+
         <div class="row">
             
             <div class="albumElement col-4">
-                <div class="card h-100">
+                <div class="card">
 
                     <img class="card-img-top" src="${album.imgUrl}">
                     <div class="card-body">
@@ -36,7 +36,9 @@ export default function albumView(album){
 
      <div class="row m-3">
 
-        <div class="col-4"></div>
+        <div class="col-4">
+        </div>
+        
         <div class="col-5">
             <div class="form-floating">
                 <input type="text" class="songNameInput form-control" id="floatingInputGrid" placeholder="Song name" value="Example song">
@@ -53,12 +55,16 @@ export default function albumView(album){
         
         <div class="col-1">
             <button class="addSongButton btn btn-primary" type="submit">Submit</button>
+            
         </div>
 
     </div>  
 
-
     </div>
+
+
+
+    
 
     `
 }

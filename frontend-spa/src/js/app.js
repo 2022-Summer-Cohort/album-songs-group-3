@@ -13,12 +13,10 @@ function makeHomeView(){
         container.innerHTML += home(albums);
         container.innerHTML += footer();
 
-        const addAlbumNavigation = document.querySelector(".addAlbum-navigation")
-        addAlbumNavigation.classList.remove("disabled");
-
         const albumElement = document.querySelectorAll(".albumElement");
-
+        
         albumElement.forEach(album =>{
+            
             const albumButton = album.querySelector(".albumButton");
 
             albumButton.addEventListener("click",()=>{
@@ -27,17 +25,14 @@ function makeHomeView(){
                 console.log(albumId)
                 makeAlbumView(albumId.value)
             })
-
-            
         })
-
-
         
+        const addAlbumButton = document.querySelector(".addAlbumButton");
 
-
-        addAlbumNavigation.addEventListener("click",() =>{
-            alert(`Hey`);
+        addAlbumButton.addEventListener("click",()=>{
+            alert('asd')
         })
+        
     })
 }
 
@@ -51,9 +46,6 @@ function makeAlbumView(albumId){
         container.innerHTML += albumView(album);
         container.innerHTML += footer();
         
-        const addAlbumNavigation = document.querySelector(".addAlbum-navigation")
-        addAlbumNavigation.classList.add("disabled");
-
         const backButton = document.querySelector(".home-navigation");
 
         backButton.addEventListener("click",()=>{

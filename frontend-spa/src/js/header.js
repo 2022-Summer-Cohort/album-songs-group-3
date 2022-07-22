@@ -10,11 +10,9 @@ export default function header() {
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
                         <a class="home-navigation nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="addAlbum-navigation nav-link" href="#">Add Album</a>
                     </li>
  
                 </ul>
