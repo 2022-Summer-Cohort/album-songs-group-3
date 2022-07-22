@@ -58,13 +58,13 @@ export default function home(albums){
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Album cover html" aria-label="Album cover html">
+                                        <input type="text" class="form-control" placeholder="Album cover html" aria-label="Album cover html" value="https://picsum.photos/200">
                                     </div>
                                 </div>
                                 
                                 <div class="row m-2">
                                 </div>
-                                
+
                                 <div class="row m-1">
                                     <div class="col">
                                         <a href="#" class="albumButton btn btn-sm btn-success">Add Album</a>
