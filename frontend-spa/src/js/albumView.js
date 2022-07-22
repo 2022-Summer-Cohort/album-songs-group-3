@@ -33,25 +33,28 @@ export default function albumView(album){
 
         </div>
 
-        <div class="row m-3">
+     <div class="row m-3">
 
-            <div class="row-cols-4">
-                <div class="form-floating">
-                    <input type="text" class="songNameInput form-control" id="floatingInputGrid" placeholder="Song name" value="Example song">
-                    <label for="floatingInputGrid">Song name</label>
-                </div>
+        <div class="col-4"></div>
+        <div class="col-5">
+            <div class="form-floating">
+                <input type="text" class="songNameInput form-control" id="floatingInputGrid" placeholder="Song name" value="Example song">
+                <label for="floatingInputGrid">Song name</label>
             </div>
-
-            <div class="col-2">
-                <div class="form-floating">
-                    <input type="text" class="songDurationInput form-control" id="floatingInputGrid" placeholder="Song duration" value="123">
-                    <label for="floatingInputGrid">Song duration</label>
-                </div>
-                <button class="addSongButton btn btn-primary" type="submit">Button</button>
-            </div>
-
-
         </div>
+        
+        <div class="col-2">
+            <div class="form-floating">
+                <input type="text" class="songDurationInput form-control" id="floatingInputGrid" placeholder="Song duration" value="123">
+                <label for="floatingInputGrid">Song duration</label>
+            </div>
+        </div>
+        
+        <div class="col-1">
+            <button class="addSongButton btn btn-primary" type="submit">Submit</button>
+        </div>
+
+    </div>  
 
 
     </div>
