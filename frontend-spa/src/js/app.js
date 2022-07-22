@@ -20,8 +20,7 @@ function makeHomeView() {
 
         albumButton.addEventListener("click", () => {
           let albumId = album.querySelector(".id_field");
-          // alert(`You clicked campus id: ${albumId.value}`);
-          console.log(albumId);
+          //   console.log(albumId);
           makeAlbumView(albumId.value);
         });
       });
@@ -100,7 +99,6 @@ function makeAlbumView(albumId) {
           });
       });
     });
-  // .catch(err=>console.error(err))
 }
 
 makeHomeView();

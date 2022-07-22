@@ -30,11 +30,9 @@ export default function home(albums){
 
                           </div>
                         </div>
-                        
                         `
                     }).join("")
                 }
-
                         <div class="col">
                             <div class="card h-100">
                          
@@ -85,7 +83,6 @@ export default function home(albums){
 
                           </div>
                         </div>
-
             </div>
     </div>
     `
