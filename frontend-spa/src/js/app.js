@@ -17,18 +17,20 @@ function makeHomeView() {
 
       albumElement.forEach((album) => {
 
-        const albumDeleteButton = album.querySelector(".albumDeleteButton");
-        albumDeleteButton.addEventListener("click",()=>{ 
-          alert("Hi");
+      const albumDeleteButton = album.querySelector(".albumDeleteButton");
+      
+      albumDeleteButton.addEventListener("click",()=>{ 
+        let albumId = album.querySelector(".id_field");
+        // alert("Hi");
           
-      //     fetch(`http://localhost:8080/api/albums/${albumId}`,{
-      //         method: 'DELETE'
-      //     })
-      //     .then(res => res.json())
-      //     .then(album => {
-      //         makeHomeView();
-      //         console.log();
-      //     })
+          fetch(`http://localhost:8080/api/albums/${albumId}`,{
+              method: 'DELETE'
+          })
+          .then(res => res.json())
+          .then(album => {
+              console.log();
+              makeHomeView();
+          })
        });
 
         const albumButton = album.querySelector(".albumButton");
