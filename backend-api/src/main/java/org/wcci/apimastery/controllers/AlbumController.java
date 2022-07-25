@@ -40,5 +40,11 @@ public class AlbumController {
         return songRepo.findAll();
     }
 
+    @DeleteMapping("/api/albums/{id}")
+    public Iterable<Campus> deleteAlbumById(@PathVariable Long id){
+        albumRepo.deleteById(id);
+        return albumRepo.findAll();
+    }
+
 }
 
