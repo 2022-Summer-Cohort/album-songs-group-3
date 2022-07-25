@@ -1,9 +1,6 @@
 package org.wcci.apimastery.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -16,7 +13,7 @@ public class Album {
     private String artist;
     private String imgUrl;
     private String label;
-    @OneToMany(mappedBy = "albums", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "albums", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
 
     public Album(String name, String artist, String description, String imgUrl, String label) {
