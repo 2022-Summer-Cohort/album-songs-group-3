@@ -23,7 +23,7 @@ function makeHomeView() {
         let albumId = album.querySelector(".id_field");
         // alert("Hi");
           
-          fetch(`http://localhost:8080/api/albums/${albumId}`,{
+          fetch(`http://localhost:8080/api/albums/${albumId.value}`,{
               method: 'DELETE'
           })
           .then(res => res.json())
@@ -41,8 +41,7 @@ function makeHomeView() {
           makeAlbumView(albumId.value);
         });
       });
-
-    
+  
 
 
       const albumArtistIn = document.querySelector(".albumArtistIn");
