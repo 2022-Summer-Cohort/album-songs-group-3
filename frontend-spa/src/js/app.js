@@ -21,7 +21,7 @@ function makeHomeView() {
       
       albumDeleteButton.addEventListener("click",()=>{ 
         let albumId = album.querySelector(".id_field");
-          
+          // alert(albumId.value);
           fetch(`http://localhost:8080/api/albums/${albumId.value}`,{
               method: 'DELETE'
           })
