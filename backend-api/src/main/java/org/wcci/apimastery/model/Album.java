@@ -1,6 +1,7 @@
 package org.wcci.apimastery.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -13,8 +14,12 @@ public class Album {
     private String artist;
     private String imgUrl;
     private String label;
+
     @OneToMany(mappedBy = "albums", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
+
+    @OneToMany (mappedBy = "albums")
+    private Collection<Review> reviews;
 
     public Album(String name, String artist, String description, String imgUrl, String label) {
         this.name = name;
@@ -22,6 +27,7 @@ public class Album {
         this.artist = artist;
         this.label = label;
         this.imgUrl = imgUrl;
+        this.reviews = new ArrayList<>();
     }
 
     public Album() {
@@ -54,4 +60,8 @@ public class Album {
     public Collection<Song> getSongs() {
         return songs;
     }
+
+    public Collection<Review> getReviews() { return reviews;}
+
+    public void addReview(Review review) {reviews.add(review);}
 }

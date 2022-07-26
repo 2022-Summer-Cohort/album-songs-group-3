@@ -3,8 +3,10 @@ package org.wcci.apimastery;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.wcci.apimastery.model.Album;
+import org.wcci.apimastery.model.Review;
 import org.wcci.apimastery.model.Song;
 import org.wcci.apimastery.repositories.AlbumRepository;
+import org.wcci.apimastery.repositories.ReviewRepository;
 import org.wcci.apimastery.repositories.SongRepository;
 
 @Component
@@ -12,9 +14,12 @@ public class Populator implements CommandLineRunner {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
 
-    public Populator(AlbumRepository albumRepo, SongRepository songRepo) {
+    private ReviewRepository reviewRepo;
+
+    public Populator(AlbumRepository albumRepo, SongRepository songRepo, ReviewRepository reviewRepo) {
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
+        this.reviewRepo = reviewRepo;
     }
 
     @Override
@@ -51,6 +56,8 @@ public class Populator implements CommandLineRunner {
         songRepo.save(song6);
         songRepo.save(song7);
 
+        Review review1 = new Review("Masterpiericing my soul", 10,album1);
+        reviewRepo.save(review1);
 
     }
 }

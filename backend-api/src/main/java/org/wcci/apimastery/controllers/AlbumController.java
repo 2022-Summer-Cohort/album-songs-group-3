@@ -2,14 +2,20 @@ package org.wcci.apimastery.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.model.Album;
+import org.wcci.apimastery.model.Review;
 import org.wcci.apimastery.model.Song;
 import org.wcci.apimastery.repositories.AlbumRepository;
+import org.wcci.apimastery.repositories.ReviewRepository;
 import org.wcci.apimastery.repositories.SongRepository;
+
+import java.util.Optional;
 
 @RestController
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
+
+    private ReviewRepository reviewRepo;
 
     public AlbumController(AlbumRepository albumRepo, SongRepository songRepo) {
         this.albumRepo = albumRepo;
@@ -40,10 +46,27 @@ public class AlbumController {
         return songRepo.findAll();
     }
 
-    @DeleteMapping("/api/albums/{id}")
+    @DeleteMapping("/api/albums/{id}/deleteAlbumById")
     public Iterable<Album> deleteAlbumById(@PathVariable Long id){
         albumRepo.deleteById(id);
         return albumRepo.findAll();
+    }
+
+    @PostMapping("/{id}/addReview")
+    public String addReviewToAlbum(@PathVariable Long id, @RequestParam String review) {
+        Album album = albumRepo.findById(id).get();
+        Optional<Review> reviewOptional = reviewRepo.findByNameIgnoreCase(review);
+        if(reviewOptional.isPresent()) {
+            if(!album.getReviews().contains(reviewOptional.get())) {
+                album.addReview(reviewOptional.get());
+            }
+        } else {
+            Review review1 = new Review("content", 5, album);
+            reviewRepo.save(review1);
+            album.addReview(review1);
+        }
+        albumRepo.save(album);
+        return "redirect:/sites/"+id;
     }
 
 }
