@@ -35,13 +35,13 @@ public class Populator implements CommandLineRunner {
         albumRepo.save(album3);
         albumRepo.save(album4);
 
-        Song song1 = new Song("Uprising","Muse", album1,420);
-        Song song2 = new Song("More Than A Feeling","Boston", album2,420);
-        Song song3 = new Song("99 Problems","Jay-Z", album3,420);
-        Song song4 = new Song("Hee Haw at the Hoe Down","Donk-EEE", album4,420);
-        Song song5 = new Song("Resistance","Muse", album1,420);
-        Song song6 = new Song("Super Massive Black-Hole","Muse", album1,420);
-        Song song7 = new Song("Psycho","Muse", album1,420);
+        Song song1 = new Song("Uprising","Muse", album1,"4:20");
+        Song song2 = new Song("More Than A Feeling","Boston", album2,"4:20");
+        Song song3 = new Song("99 Problems","Jay-Z", album3,"4:20");
+        Song song4 = new Song("Hee Haw at the Hoe Down","Donk-EEE", album4,"4:20");
+        Song song5 = new Song("Resistance","Muse", album1,"4:20");
+        Song song6 = new Song("Super Massive Black-Hole","Muse", album1,"4:20");
+        Song song7 = new Song("Psycho","Muse", album1,"4:20");
 
         songRepo.save(song1);
         songRepo.save(song2);
