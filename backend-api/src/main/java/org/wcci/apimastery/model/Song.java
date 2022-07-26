@@ -12,7 +12,7 @@ public class Song {
     private Long id;
     private String name;
     private String artist;
-    private int duration;
+    private String duration;
 
     @ManyToOne
     @JsonIgnore
@@ -21,7 +21,7 @@ public class Song {
     @ElementCollection
     private Collection<String> comments;
 
-    public Song(String name, String artist, Album albums, int duration) {
+    public Song(String name, String artist, Album albums, String duration) {
         this.name = name;
         this.artist = artist;
         this.albums = albums;
@@ -43,7 +43,7 @@ public class Song {
         return artist;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
