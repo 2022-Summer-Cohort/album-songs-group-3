@@ -1,9 +1,13 @@
-export default function home(albums){
-    return `
+export default function home(albums) {
+  let seed = Math.floor(Math.random() * 100);
+  let randomImage = "https://picsum.photos/200/200?random=" + seed;
+
+  https: return `
 
         <div class="containter m-3">
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                ${albums.map(album =>{
+                ${albums
+                  .map((album) => {
                     return `
 
                         <div class="albumElement col">
@@ -30,9 +34,9 @@ export default function home(albums){
 
                           </div>
                         </div>
-                        `
-                    }).join("")
-                }
+                        `;
+                  })
+                  .join("")}
                         <div class="col">
                             <div class="card h-100">
                          
@@ -64,7 +68,7 @@ export default function home(albums){
 
                                 <div class="row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control albumImgIn" placeholder="Album cover html" aria-label="Album cover html" value="https://picsum.photos/200">
+                                        <input type="text" class="form-control albumImgIn" placeholder="Album cover html" aria-label="Album cover html" value=${randomImage}>
                                     </div>
                                 </div>
                                 
@@ -85,5 +89,5 @@ export default function home(albums){
                         </div>
             </div>
     </div>
-    `
+    `;
 }

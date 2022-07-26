@@ -11,10 +11,15 @@ export default function albumView(album) {
 
                     <img class="card-img-top" src="${album.imgUrl}">
                     <div class="card-body">
-                        <h5 class="card-title">${album.artist} - ${album.name} (${album.label})</h5>
+                        <h5 class="card-title">${album.artist} - ${
+      album.name
+    } (${album.label})</h5>
                         <p class="card-text">${album.description}</p>
                         <input class="id_field" hidden value="${album.id}">
-                        <input class="artistName" hidden value="${album.artist}">
+                        <input class="artistName" hidden value="${
+                          album.artist
+                        }">
+                        <input class="albumName" hidden value="${album.name}">
                     </div>
 
                 </div>
@@ -22,12 +27,13 @@ export default function albumView(album) {
 
             <div class="col-6">
                 <ol class="list-group list-group-numbered">
-                  ${album.songs.map((songs) => {
-                return `
+                  ${album.songs
+                    .map((songs) => {
+                      return `
                       <li class="list-group-item">${songs.name} - ${songs.duration}</li>
                       `;
-            })
-            .join("")}
+                    })
+                    .join("")}
                 </ol>
             </div>
 
@@ -39,21 +45,36 @@ export default function albumView(album) {
                 
                 <h3 class="mt-5">Have something to say?</h3>
 
+                <ul class="list-group list-group-flush">
+                  ${album.reviews
+                    .map((reviews) => {
+                      return `
+                      <li class="list-group-item">[${reviews.rating}/10] ${reviews.content}</li>
+                      `;
+                    })
+                    .join("")}
+                </ul>
+
                 <div class="form-floating mt-2">
                     <input type="text" class="albumCommentInput form-control" id="floatingInputGrid" placeholder="" value="Example comment!">
                     <label for="floatingInputGrid">Comments</label>
                 </div>
                 
-                <select class="form-select mt-2" aria-label="Default select example">
+                <select class="form-select mt-2 albumRatingInput" aria-label="Default select example">
                     <option selected>Album Rating</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                    <option value=10>10</option>
                 </select>
-                
-                <button class="addReviewButton btn btn-primary mt-2" type="submit">Submit</button>
+
+                <button class="addReviewButton btn btn-primary mt-2" type="submit">Add review</button>
 
             </div>
             
@@ -85,7 +106,7 @@ export default function albumView(album) {
                     </div>
                 </div>
             
-                <button class="addSongButton btn btn-primary mt-2" type="submit">Submit</button>
+                <button class="addSongButton btn btn-primary mt-2" type="submit">Add song</button>
                 
             </div>
 

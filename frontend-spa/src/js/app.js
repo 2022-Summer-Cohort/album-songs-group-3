@@ -22,14 +22,17 @@ function makeHomeView() {
       albumDeleteButton.addEventListener("click",()=>{ 
         let albumId = album.querySelector(".id_field");
           // alert(albumId.value);
-          fetch(`http://localhost:8080/api/albums/${albumId.value}`,{
-              method: 'DELETE'
-          })
-          .then(res => res.json())
-          .then(album => {
+          fetch(
+            `http://localhost:8080/api/albums/${albumId.value}/deleteAlbumById`,
+            {
+              method: "DELETE",
+            }
+          )
+            .then((res) => res.json())
+            .then((album) => {
               console.log();
               makeHomeView();
-          })
+            });
        });
 
         const albumButton = album.querySelector(".albumButton");
@@ -79,7 +82,7 @@ function makeAlbumView(albumId) {
   fetch(`http://localhost:8080/api/albums/${albumId}`)
     .then((res) => res.json())
     .then((album) => {
-      console.log(album);
+      // console.log(album);
 
       container.innerHTML = header();
       container.innerHTML += albumView(album);
@@ -96,6 +99,10 @@ function makeAlbumView(albumId) {
       const songDurationMinIn = container.querySelector(".songDurationInputMin");
       const songDurationSecIn = container.querySelector(".songDurationInputSec");
       const addSongButton = container.querySelector(".addSongButton");
+      const addReviewButton = container.querySelector(".addReviewButton");
+      const albumCommentIn = container.querySelector(".albumCommentInput");
+      const albumRatingInput = container.querySelector(".albumRatingInput");
+      const albumName = container.querySelector(".albumName");
 
       addSongButton.addEventListener("click", () => {
         const newSongJson = {
@@ -103,7 +110,7 @@ function makeAlbumView(albumId) {
           duration: songDurationMinIn.value + ":" + songDurationSecIn.value,
           artist: artistNameIn.value,
         };
-
+        // alert(newSongJson);
         fetch(`http://localhost:8080/api/albums/${albumId}/addSong`, {
           method: "PATCH",
           headers: {
@@ -116,6 +123,29 @@ function makeAlbumView(albumId) {
             makeAlbumView(albumId);
           });
       });
+
+      addReviewButton.addEventListener("click", () => {
+        const newReviewJson = {
+          content: albumCommentIn.value,
+          rating: albumRatingInput.value,
+          // rating: 5,
+          album: albumName.value
+        };
+        // alert(newReviewJson);
+
+        fetch(`http://localhost:8080/api/albums/${albumId}/addReview`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newReviewJson),
+        })
+          .then((res) => res.json())
+          .then((album) => {
+            makeAlbumView(albumId);
+          });
+      });
+
     });
 }
 
