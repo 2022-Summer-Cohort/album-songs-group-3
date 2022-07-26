@@ -21,7 +21,6 @@ function makeHomeView() {
       
       albumDeleteButton.addEventListener("click",()=>{ 
         let albumId = album.querySelector(".id_field");
-        // alert("Hi");
           
           fetch(`http://localhost:8080/api/albums/${albumId.value}`,{
               method: 'DELETE'
@@ -42,7 +41,6 @@ function makeHomeView() {
         });
       });
   
-
 
       const albumArtistIn = document.querySelector(".albumArtistIn");
       const albumNameIn = document.querySelector(".albumNameIn");
@@ -95,13 +93,14 @@ function makeAlbumView(albumId) {
 
       const songNameIn = container.querySelector(".songNameInput");
       const artistNameIn = container.querySelector(".artistName");
-      const songDurationIn = container.querySelector(".songDurationInput");
+      const songDurationMinIn = container.querySelector(".songDurationInputMin");
+      const songDurationSecIn = container.querySelector(".songDurationInputSec");
       const addSongButton = container.querySelector(".addSongButton");
 
       addSongButton.addEventListener("click", () => {
         const newSongJson = {
           name: songNameIn.value,
-          duration: songDurationIn.value,
+          duration: songDurationMinIn.value + ":" + songDurationSecIn.value,
           artist: artistNameIn.value,
         };
 
