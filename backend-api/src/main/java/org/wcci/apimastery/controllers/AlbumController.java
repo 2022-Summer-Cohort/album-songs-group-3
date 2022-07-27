@@ -14,12 +14,12 @@ import java.util.Optional;
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
-
     private ReviewRepository reviewRepo;
 
-    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo) {
+    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, ReviewRepository reviewRepo) {
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
+        this.reviewRepo = reviewRepo;
     }
 
     @GetMapping("/api/albums")
@@ -30,6 +30,12 @@ public class AlbumController {
     @GetMapping("/api/albums/{id}")
     public Album retrieveAlbumById(@PathVariable Long id) {
         return albumRepo.findById(id).get();
+    }
+
+    @DeleteMapping("/api/albums/{id}/deleteAlbumById")
+    public Iterable<Album> deleteAlbumById(@PathVariable Long id){
+        albumRepo.deleteById(id);
+        return albumRepo.findAll();
     }
 
     @PostMapping("/api/addAlbums")
@@ -46,27 +52,12 @@ public class AlbumController {
         return songRepo.findAll();
     }
 
-    @DeleteMapping("/api/albums/{id}/deleteAlbumById")
-    public Iterable<Album> deleteAlbumById(@PathVariable Long id){
-        albumRepo.deleteById(id);
-        return albumRepo.findAll();
-    }
-
-    @PostMapping("/{id}/addReview")
-    public String addReviewToAlbum(@PathVariable Long id, @RequestParam String review) {
-        Album album = albumRepo.findById(id).get();
-        Optional<Review> reviewOptional = reviewRepo.findByNameIgnoreCase(review);
-        if(reviewOptional.isPresent()) {
-            if(!album.getReviews().contains(reviewOptional.get())) {
-                album.addReview(reviewOptional.get());
-            }
-        } else {
-            Review review1 = new Review("content", 5, album);
-            reviewRepo.save(review1);
-            album.addReview(review1);
-        }
-        albumRepo.save(album);
-        return "redirect:/sites/"+id;
+    @PatchMapping("/api/albums/{id}/addReview")
+    public Iterable<Review> addReview(@RequestBody Review reviewToAdd, @PathVariable Long id) {
+        Album newAlbum = albumRepo.findById(id).get();
+        Review newReview = new Review(reviewToAdd.getContent(), reviewToAdd.getRating(), newAlbum);
+        reviewRepo.save(newReview);
+        return reviewRepo.findAll();
     }
 
 }

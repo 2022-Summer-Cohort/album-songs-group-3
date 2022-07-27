@@ -13,7 +13,6 @@ import org.wcci.apimastery.repositories.SongRepository;
 public class Populator implements CommandLineRunner {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
-
     private ReviewRepository reviewRepo;
 
     public Populator(AlbumRepository albumRepo, SongRepository songRepo, ReviewRepository reviewRepo) {
@@ -56,8 +55,13 @@ public class Populator implements CommandLineRunner {
         songRepo.save(song6);
         songRepo.save(song7);
 
-        Review review1 = new Review("Masterpiericing my soul", 10,album1);
+        Review review1 = new Review("Masterpiericing my soul", 10, album1);
+        Review review2 = new Review("Boring", 5, album1);
+        Review review3 = new Review("Loved it", 2, album1);
+
         reviewRepo.save(review1);
+        reviewRepo.save(review2);
+        reviewRepo.save(review3);
 
     }
 }

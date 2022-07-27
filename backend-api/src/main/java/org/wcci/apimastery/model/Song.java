@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Song {
@@ -13,7 +14,6 @@ public class Song {
     private String name;
     private String artist;
     private String duration;
-
     @ManyToOne
     @JsonIgnore
     private Album albums;
@@ -28,29 +28,36 @@ public class Song {
         this.duration = duration;
     }
 
-    public Song() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(id, song.id) && Objects.equals(name, song.name) && Objects.equals(artist, song.artist) && Objects.equals(duration, song.duration);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, artist, duration);
+    }
+
+    public Song() {
+    }
     public Long getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }
-
     public String getArtist() {
         return artist;
     }
-
     public String getDuration() {
         return duration;
     }
-
     public Album getAlbums() {
         return albums;
     }
-
     public Collection<String> getComments() {
         return comments;
     }

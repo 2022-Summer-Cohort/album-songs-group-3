@@ -2,27 +2,30 @@ package org.wcci.apimastery.controllers;
 
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.wcci.apimastery.model.Review;
+import org.wcci.apimastery.repositories.AlbumRepository;
 import org.wcci.apimastery.repositories.ReviewRepository;
 
 @RestController
-@RequestMapping("/reviews")
+//@RequestMapping("/reviews")
 public class ReviewController {
-
     private ReviewRepository reviewRepo;
+    private AlbumRepository albumRepo;
 
-    public ReviewRepository getReviewRepo() {
-        return reviewRepo;
-    }
-
-    public ReviewController(ReviewRepository reviewRepo) {
+    public ReviewController(ReviewRepository reviewRepo, AlbumRepository albumRepo) {
         this.reviewRepo = reviewRepo;
+        this.albumRepo = albumRepo;
     }
 
-    @RequestMapping("/")
-    public String showAllReviews(Model model) {
-        model.addAttribute("reviews", reviewRepo.findAll());
-        return "allReviews";
-    }
+    @GetMapping("/api/reviews")
+    public Iterable<Review> retrieveAllReviews() {return reviewRepo.findAll(); }
+//    public String showAllReviews(Model model) {
+//        model.addAttribute("reviews", reviewRepo.findAll());
+//        return "allReviews";
+//    }
+
+
 }
