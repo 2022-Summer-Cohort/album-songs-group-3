@@ -60,8 +60,8 @@ export default function albumView(album) {
                     <label for="floatingInputGrid">Comments</label>
                 </div>
                 
-                <select class="form-select mt-2 albumRatingInput" aria-label="Default select example">
-                    <option selected>Album Rating</option>
+                <select class="form-select mt-2 albumRatingInput" aria-label="Default select example" required>
+                    <option selected disabled>Album Rating</option>
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
@@ -111,7 +111,7 @@ export default function albumView(album) {
             </div>
 
         </div>  
-
+        
     </div>
 
 

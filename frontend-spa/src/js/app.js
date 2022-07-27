@@ -16,11 +16,10 @@ function makeHomeView() {
       const albumElement = document.querySelectorAll(".albumElement");
 
       albumElement.forEach((album) => {
+        const albumDeleteButton = album.querySelector(".albumDeleteButton");
 
-      const albumDeleteButton = album.querySelector(".albumDeleteButton");
-      
-      albumDeleteButton.addEventListener("click",()=>{ 
-        let albumId = album.querySelector(".id_field");
+        albumDeleteButton.addEventListener("click", () => {
+          let albumId = album.querySelector(".id_field");
           // alert(albumId.value);
           fetch(
             `http://localhost:8080/api/albums/${albumId.value}/deleteAlbumById`,
@@ -33,7 +32,7 @@ function makeHomeView() {
               console.log();
               makeHomeView();
             });
-       });
+        });
 
         const albumButton = album.querySelector(".albumButton");
 
@@ -43,7 +42,7 @@ function makeHomeView() {
           makeAlbumView(albumId.value);
         });
       });
-  
+
 
       const albumArtistIn = document.querySelector(".albumArtistIn");
       const albumNameIn = document.querySelector(".albumNameIn");
