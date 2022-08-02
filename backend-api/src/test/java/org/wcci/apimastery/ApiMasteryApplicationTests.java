@@ -9,5 +9,4 @@ public class ApiMasteryApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
